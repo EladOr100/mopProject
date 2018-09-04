@@ -1,0 +1,228 @@
+/* Containers */
+html, body {
+  min-height: 100%;
+}
+
+body {
+  font-family: sans-serif;
+  background: #42426b;
+  background-image: -webkit-linear-gradient(135deg, #8067B7, #EC87C0);
+  background-image: linear-gradient(-45deg, #8067B7, #EC87C0);
+  color: whitesmoke;
+}
+
+.rb-box {
+  width: 90%;
+  max-width: 550px;
+  margin: 50px auto;
+  padding: 2.1em;
+  background: #292942;
+  border-radius: .75em;
+  -webkit-filter: drop-shadow(1px 2px 5px rgba(0,0,0,.3));
+  filter: drop-shadow(1px 2px 5px rgba(0,0,0,.3));
+  box-shadow: 
+    0 2px 2px rgba(243,49,128,.5),
+    0 0px 5px rgba(243,49,128,.15),
+    0 0px 4px rgba(0,0,0,.35),
+    0 5px 20px rgba(243,49,128,.25),
+    0 15px 50px rgba(243,49,128,.75),
+    inset 0 0 15px rgba(255,255,255,.05);
+}
+
+/* Custom Radio Button */
+p {
+  font-size: .9em;
+}
+
+.rb {
+  padding: 40px 0;
+  text-align: center;
+  background: rgba(255,255,255,.03);
+  border-radius: .3em;
+}
+
+.rb-tab {
+  display: inline-block;
+  position: relative;
+  width: 20%;
+}
+
+.rb-txt {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: .93em;
+  color: #FFFFFF;
+}
+
+.rb-spot {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: transparent;
+  border: 2px solid whitesmoke;
+  border-radius: 100%;
+  cursor: pointer;
+  transition: ease .5s;
+}
+
+.rb-tab-active .rb-spot {
+  background: rgba(0,0,0,.35);
+  border: 2px solid #2ecc71;
+}
+.rb-tab-unactive .rb-spot {
+  background: rgba(0,0,0,.35);
+  border: 2px solid whitesmoke;
+}
+
+/* Submit Button */
+.button-box {
+  padding: 10px 0;
+  text-align: center;
+}
+
+button {
+  display: inline-block;
+  width: 80%;
+  margin-top: 1.2em;
+  padding: 1em;
+  max-width: 300px;
+  font-size: .9em;
+  color: whitesmoke;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: .15em;
+  background: #2ecc71;
+  border: none;
+  outline: none;
+  border-radius: 5em;
+  box-shadow: 0 15px 20px -10px rgba(0, 0, 0, 0.3);
+  transition: 
+    color 0.6s, 
+    box-shadow 0.3s, 
+    transform 0.3s;
+  cursor: pointer;
+}
+
+button:hover {
+  box-shadow: 0 3px 5px -5px rgba(0, 0, 0, 0.3);
+  color: #6f6f6f;
+}
+
+*{
+box-sizing:border-box;
+}
+
+body,html{
+height:100%;
+width:100%;
+margin:0px;
+padding:0px;
+background:#fff;
+}
+
+div#loader{
+position:absolute;
+top:calc(50% - 12px);
+width:100%;
+text-align:center;
+}
+
+div#loader > span{
+font-family:'consolas';
+font-soize:25px;
+display:inline-block;
+transform:scale(1.5);
+letter-spacing:10px;
+animation:spin 02s linear infinite;
+transition:all 0.3s ease;
+opacity:1;
+color:#fff;
+}
+
+div#loader.clear{
+  opacity:0;
+}
+
+div#loader > span:nth-child(2){
+animation-delay:0.1s;
+}
+
+div#loader > span:nth-child(3){
+animation-delay:0.2s;
+}
+
+div#loader > span:nth-child(4){
+animation-delay:0.3s;
+}
+
+div#loader > span:nth-child(5){
+animation-delay:0.4s;
+}
+
+div#loader > span:nth-child(6){
+animation-delay:0.5s;
+}
+
+div#loader > span:nth-child(7){
+animation-delay:0.6s;
+}
+
+div#loader > span:nth-child(8){
+animation-delay:0.7s;
+}
+
+div#loader > span:nth-child(9){
+animation-delay:0.8s;
+}
+
+
+@keyframes spin{
+50%{
+transform:scaleY(1);
+opacity:0;
+}
+}
+
+.unfold-box {
+  background: RGB(8, 59, 112);
+  -webkit-transition: all 1s cubic-bezier(0.680, 0, 0.265, 1); /* older webkit */
+-webkit-transition: all 1s cubic-bezier(0.680, -2.550, 0.265, 3.550); 
+   -moz-transition: all 1s cubic-bezier(0.680, -2.550, 0.265, 3.550); 
+     -o-transition: all 1s cubic-bezier(0.680, -2.550, 0.265, 3.550); 
+        transition: all 1s cubic-bezier(0.680, -2.550, 0.265, 3.550); /* easeInOutBack */
+  box-sizing: border-box;
+  transform: scale(1);
+  opacity: 1;
+  display: inline-block;
+  float: left;
+}
+
+#unfold-block {
+  height: 100%;
+  width: 100vw;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  transition: all 0.5s ease;
+}
+
+.unfold-box.clear {
+  transform: scale(0);
+  opacity: 0;
+}
+
+#unfold-block.clear {
+  background: transparent;
+}
+.something {
+  position: absolute;
+  font-size: 25px;
+  top: calc(50% - 12px);
+  text-align: center;
+  width: 100%;
+}
