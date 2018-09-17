@@ -1,4 +1,5 @@
-   var _height = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+  import {socketCommunication} from './socketConnection.js'
+  var _height = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
    var _width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
    var _block_height = Math.round(_height / 9);
    var _block_width = Math.ceil(_width / 16);
@@ -7,16 +8,16 @@
    for (var i = 0; i < 9; i++) {
      for (var j = 0; j < 15; j++) {
        _blocks += "<div class='unfold-box' style='transition-delay:" + _animation_delay + "s;'></div>"
-       _animation_delay += 0.03;
+       _animation_delay += 0.02;
      }
      _blocks += "<div class='unfold-box' style='transition-delay:" + _animation_delay + "s;width:"+ ( _width - (_block_width * 15)) + "px;'></div>";
-     _animation_delay += 0.03;
+     _animation_delay += 0.02;
    }
 
 
    _blocks += "<div id='loader'><span>L</span><span>O</span><span>A</span><span>D</span><span>I</span><span>N</span><span>G</span><span>...</span><span>T</span><span>E</span><span>S</span><span>T</span><span>...</span><span>M</span><span>A</span><span>N</span><span>A</span><span>G</span><span>E</span><span>R</span></div></div>";
    document.getElementsByTagName("body")[0].insertAdjacentHTML('beforeend', _blocks);
-document.getElementsByTagName("body")[0].style.overflow = "hidden";
+   document.getElementsByTagName("body")[0].style.overflow = "hidden";
    setTimeout(function() {
 
      var _blocksDOM = document.querySelectorAll(".unfold-box");
@@ -31,6 +32,7 @@ document.getElementsByTagName("body")[0].style.overflow = "hidden";
      document.getElementById('loader').classList.add('clear');
    }, 4000);
 
+
    setTimeout(function() {
      document.getElementById("unfold-block").remove();
      document.getElementsByTagName("body")[0].style.overflow = "hidden";
@@ -43,7 +45,7 @@ document.getElementsByTagName("body")[0].style.overflow = "hidden";
  //Switcher function:
 $(".rb-tab").click(function(){
   //Spot switcher:
-  $(this).parent().find(".rb-tab").removeClass("rb-tab-active");
+  $(this).parent().parent().find(".rb-tab").removeClass("rb-tab-active");
   $(this).addClass("rb-tab-active");
 });
    
@@ -76,7 +78,10 @@ $(".rb-tab").click(function(){
 
      if(survey[0][1]==1)
      {
-      window.open("http://localhost:3000/exec")
+      socketCommunication.sendDataToServer({bla:'bla'},(data)=>{
+        console.log(data);
+      })
+     // window.open("http://localhost:3000/exec")
      }
 //if((survey[0][1]!=2)&&(survey[0][2]!=2)&&(survey[0][3]!=2)&&(survey[0][4]!=2)&&(survey[0][5]!=2))
 
